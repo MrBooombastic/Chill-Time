@@ -1,17 +1,31 @@
 window.addEventListener('load', function () {
     const loader = document.querySelector('.loader');
     loader.classList.add('hidden');
-});
+})
 
 window.onload = function() {
-    let imageContainer = document.querySelector('.image-container');
-    let infoContainer = document.querySelector('.info-container');
+    let container = document.querySelector('.container');
 
     setTimeout(function() {
-        imageContainer.style.left = '0';
+        container.style.left = '0';
     }, 500); // Delay for the image to slide from the left
 
-    setTimeout(function() {
-        infoContainer.style.right = '0';
-    }, 1000); // Delay for the info box to slide from the bottom
-};
+}
+
+function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 20;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+
+window.addEventListener("scroll", reveal);

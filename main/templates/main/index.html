@@ -7,90 +7,130 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Verdana">
+    <script src="https://kit.fontawesome.com/8a134efa8c.js" crossorigin="anonymous"></script>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>ChillTime</title>
 </head>
 <body>
-    
-    <div class="loader"></div>
 
+    <section>
 
-    <header>
-        <div>
-          <a href="https://t.me/chilltimedotcom" class="header_link"><!--<lord-icon src="https://cdn.lordicon.com/ayhtotha.json" id="telegram-icon" trigger="hover"></lord-icon> --> Telegram</a> 
-        </div>
-        
-        <div id="square-quote">
-            <p>It's time to take a rest</p>
-        </div>
+        <!-- HEADER AND LINKS -->
 
-        <div>
-            <a href="https://discord.gg/QdqjmAJFya" class="header_link">Discord</a>
-        </div>
-    </header>
-
-
-
-
-
-    <main>
-        <!-- A STATIC BACKGROUND -->
-        <div>
-            <img src="static/index/img/background.jpg" class="background-image" alt="">
-        </div>
-
-        
-        <!-- A QUOTE PART -->
-        <div class="quote">
-            <p>It's time to take a rest</p>
-        </div>
-
-
-
-        <!-- INFO BOXES     -->
-        <div class="container">
-            <div class="image-container">
-                <img src="static/index/img/preview.jpg" alt="Your Image" width="300" height="300">
+        <header>
+            <div class="header_link">
+                <div class="home-sci">
+                    <a href="#"><i class='bx bxl-telegram'></i></a>
+                    <p>Telegram</p>
+                </div>
             </div>
 
-            <div class="info-container">
-                <h2>Information Box</h2>
-                <p>lorem100.</p>
+            <div id="square-quote">
+                <p>It's time to take a rest</p>
+            </div>
+
+            <div class="header_link">
+                <div class="home-sci">
+                    <a href="#"><i class='bx bxl-discord'></i></a>
+                    <p>Discord</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- A STATIC BACKGROUND -->
+
+            <div>
+                <img src="static/index/img/background.jpg" class="background-image" alt="">
+            </div>
+
+    </section>
+
+
+    <section>
+
+        <!-- A QUOTE PART -->
+
+        <div class="quote-container">
+            <div class="quote-content">
+                <div class="quote-animate">
+                    <p>{{ DailyQuote.text }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFO BOXES -->
+
+        <div class="final-block">
+            <div class="final-block-image-container">
+                    <img src="static/index/img/landscape.jpg" alt="Your Image" width="100%" height="100%">
+            </div>
+            <div class="final-block-info-container">
+                <h1>What is about our project ?</h1>
+                <p>This is the information box.
+                    It slowly comes from the bottom of the screen.
+                </p>
             </div>
         </div>
 
         {% for box in InformationBox %}
-        <div class="container">
 
-            <div class="info-container">
-                <h2>{{ box.title }}</h2>
-                <p>{{ box.main_text }}</p>
+            <div class="container reveal fade-{{ box.side }}">
+
+                <div class="info-container">
+                    <h1 class="info-title">{{ box.title }}</h1>
+                    <p class="info-text">{{ box.main_text }}</p>
+                </div>
+
+                <div class="info-img">
+                    <img src="{{ box.box_img.url }}" alt="Your Image" width="50%" height="50%">
+                </div>
+
             </div>
 
-            <div class="image-container">
-                <img src="{{ box.box_img.url }}" alt="Your Image" width="50%" height="50%">
-            </div>
-        </div>
         {% endfor %}
-        <div id="final-block">
-                
-            <div class="final-block-image-container">
-                <img src="static/index/img/landscape.jpg" alt="Your Image" width="100%" height="100%">
-            </div>
 
-            <div class="final-block-info-container">
-                <h2>Information Box</h2>
-                <p>This is the information box. It slowly comes from the bottom of the screen.</p>
-            </div>
+    </section>
 
+
+    <section>
+
+        <!-- FEEDBACK -->
+
+        <div class="feedback-container">
+            <div class="feedback-content">
+                <p>Feed Backs</p>
+            </div>
         </div>
 
-    </main>
+
+        <div class="testimonial">
+            <div class="small-container">
+                <div class="row">
+
+                    {% for feedback in Feedback %}
+
+                    <div class="col-3">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <p>{{ feedback.feedback_text }}</p>
+                        <img src="{{ feedback.feedback_img.url }}">
+                        <h3>{{ feedback.name }}</h3>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+        <!-- FOOTER -->
 
     <footer>
         <div id="footer-links">
             <div><a href="#" class="footer_link">Support us</a></div>
-            <div><a href="#" class="footer_link">Contact us</a></div>
-            <div><a href="#" class="footer_link">Leave feedback</a></div>
+            <div><a href="{% url 'contact_us' %}" class="footer_link">Contact us / Leave feedback</a></div>
             <div><a href="#" class="footer_link">Credits</a></div>
         </div>
 
@@ -99,7 +139,7 @@
         </div>
     </footer>
 
-   
+
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-abcdef123456789" crossorigin="anonymous"></script>

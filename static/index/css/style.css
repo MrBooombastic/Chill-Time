@@ -55,9 +55,9 @@ header div{
 
 #square-quote p{
     text-align: center; /* Center the text horizontally */
-    line-height: 18rem; /* Center the text vertically */
+    margin-top: 5rem;
     color: #fff; /* blue text color */
-    -webkit-text-stroke-width: 0.75px;
+    -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #0693ff;
     font-size: 2.5rem;
 }
@@ -447,30 +447,6 @@ footer{
 @media (max-width: 760px) {
     html {
         font-size: 75%;
-    }
-
-    .home-sci{
-        justify-content: space-between;
-        margin-top: 10rem;
-    }
-
-    #square-quote {
-        width: 50rem;
-        height: 20rem;
-        background-color: #CBF1F5; /* white background */
-        border-radius: 0 0 100% 100%;
-        animation: slideFromTop 2s forwards;
-    }
-
-    #square-quote p{
-        clear: both;
-        display: inline-block;
-        overflow: hidden;
-        white-space: nowrap;
-        line-height: 18rem; /* Center the text vertically */
-        color: #fff; /* blue text color */
-        -webkit-text-stroke-width: 0.75px;
-        -webkit-text-stroke-color: #0693ff;
     }
 }
 

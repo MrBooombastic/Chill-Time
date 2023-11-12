@@ -12,3 +12,7 @@ def index(request):
 
 def contact_us(request):
     return render(request, 'main/contact_us.html')
+
+
+def credits(request):
+    return render(request, 'main/credits.html')

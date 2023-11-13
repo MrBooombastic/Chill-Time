@@ -94,6 +94,7 @@ header div{
 
 .home-sci p {
     font-size: 1.5rem;
+    color: #fff;
 }
 
 .home-sci a::before {
@@ -107,7 +108,9 @@ header div{
     z-index: -1;
     transition: 0.5s;
 }
-
+.header-icon{
+    color: #fff;
+}
 .home-sci a:hover {
     color: #fff;
 }
@@ -333,15 +336,22 @@ section:nth-child(4) {
 .feedback-content {
     max-width: 60rem;
     z-index: 99;
+    display: flex;
+    justify-content: center;
+
 }
 
 .feedback-content p{
     font-size: 3.2rem;
     font-weight: 600;
     width: 100%;
-    color: transparent;
-    -webkit-text-stroke: .7px #0693ff;
-    -webkit-background-clip: text;
+    color: #0693ff;
+    font-family: 'Pacifico';
+    text-align: center; /* Center the text horizontally */
+    color: #fff; /* blue text color */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #0693ff;
+    font-size: 3rem;
 }
 
 .small-container{
@@ -424,9 +434,10 @@ footer{
 }
 #footer-links div a{
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: 'Verdana'!important; 
     color: #0693ff;
+    
 }
 #all-rights-reserved{
     font-family: 'Verdana'!important; 
